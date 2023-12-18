@@ -5,7 +5,7 @@ function NavMenu() {
                 <NavLink to="/">Home Page</NavLink>
                 <NavLink to="/employee-pairing">Employee Pairing Page</NavLink>
                 <NavLink to="/filter-page">Filter Page</NavLink>
-                <NavLink to="/search-page">Search Page</NavLink>
+                <NavLink to="/search-page">Project Information</NavLink>
             </div>);
 }
 

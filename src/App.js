@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Main from './pages/Main';
-import HomePage from './pages/HomePage';
 import EmpPairing from './pages/EmpPairing';
 import FilterPage from './pages/FilterPage';
-import SearchPage from './pages/SearchPage';
+import HomePage from './pages/HomePage';
+import Main from './pages/Main';
+import ProjectInfo from './pages/ProjectInfo';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
             <Route path="" element={<HomePage />} />
             <Route path="/employee-pairing" element={<EmpPairing />} />
             <Route path="/filter-page" element={<FilterPage />} />
-            <Route path="/search-page" element={<SearchPage />} />
+            <Route path="/search-page" element={<ProjectInfo />} />
           </Route>
         </Routes>
       </BrowserRouter>

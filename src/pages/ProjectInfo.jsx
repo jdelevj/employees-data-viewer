@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useEmployees } from "../hooks/useEmployees";
 import { formatDate } from "../utils/dateUtils";
 
-function SearchPage() {
+function ProjectInfo() {
     const { employeesData } = useEmployees();
     const [groupByProject, setGroupByProject] = useState(null);
     useEffect(() => {
@@ -63,4 +63,4 @@ function SearchPage() {
     )
 }
 
-export default SearchPage;
+export default ProjectInfo;

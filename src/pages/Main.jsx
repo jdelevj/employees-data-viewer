@@ -1,6 +1,6 @@
 import React from "react";
-import NavMenu from "../components/NavMenu";
 import { Outlet } from "react-router-dom";
+import NavMenu from "../components/NavMenu";
 import { EmployeesProvider } from "../context/EmployeesContext";
 
 function Main() {
