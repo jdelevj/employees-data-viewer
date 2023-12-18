@@ -58,6 +58,7 @@ function ProjectInfo() {
 
     return (
         <div>
+            <h3>Project Participants Information</h3>
             {groupByProject && tableProject()}
         </div>
     )
