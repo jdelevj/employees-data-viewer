@@ -27,8 +27,6 @@ export function FileBrowser() {
 
                 });
 
-                //setStatistics(performanceStats);
-
             } else {
                 parsingErrors.push('Empty file loaded');
             }
