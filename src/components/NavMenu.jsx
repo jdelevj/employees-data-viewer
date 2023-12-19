@@ -2,10 +2,9 @@ import { NavLink } from "react-router-dom";
 
 function NavMenu() {
     return ( <div>
-                <NavLink to="/">Home Page</NavLink>
-                <NavLink to="/employee-pairing">Employee Pairing Page</NavLink>
-                <NavLink to="/employee-info">Employee Information</NavLink>
-                <NavLink to="/project-info">Project Information</NavLink>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/employees">Employees</NavLink>
+                <NavLink to="/projects">Projects</NavLink>
             </div>);
 }
 
