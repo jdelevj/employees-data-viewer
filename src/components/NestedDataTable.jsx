@@ -10,7 +10,7 @@ export function NestedDataTable({data, parentLabel}) {
     function parentRow(rowData) {
         return (
             <>
-                <tr><td colSpan={2}>{parentLabel} {rowData.id}</td></tr>
+                <tr className="heading-row"><td colSpan={2}>{parentLabel} {rowData.id}</td></tr>
                 {Object.keys(rowData.children).map((childId) => childRow(rowData.children[childId]))}
             </>
         )

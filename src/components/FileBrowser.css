@@ -1,0 +1,34 @@
+.file-browser {
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-browser .drop-target {
+    width: 100%;
+    height: 120px;
+    border: 2px dashed gray;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-browser .drop-target.highlight {
+    border: 2px dashed #FB8500; 
+    background-color: #F1F1F1;
+}
+
+.file-browser .file-input {
+    display: none;
+}
+
+.file-browser button {
+    margin-top: 12px;
+}
+
+.file-browser .errors {
+    display: flex;
+    flex-direction: column;
+}

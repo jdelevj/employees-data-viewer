@@ -8,6 +8,11 @@ function Main() {
         <EmployeesProvider>
             <div className="Main">
                 <header className="Main-header">
+                    <div className="mt-32 mb-32">
+                        <div className="container justify-content-center">
+                            <h1>Employees data viewer</h1>
+                        </div>
+                    </div>  
                     <NavMenu />
                 </header>
                 <Outlet />

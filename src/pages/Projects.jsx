@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NestedDataTable } from "../components/NestedDataTable";
 import { useEmployees } from "../hooks/useEmployees";
 import { nestedGrouping } from "../utils/dataValidations";
+import { FileBrowser } from "../components/FileBrowser";
 
 
 
@@ -10,13 +11,23 @@ function Projects() {
     const [groupByProject, setGroupByProject] = useState(null);
 
     useEffect(() => {
-        setGroupByProject(nestedGrouping(employeesData, 'projectId', 'employeeId'))
+        if (employeesData) {
+            setGroupByProject(nestedGrouping(employeesData, 'projectId', 'employeeId'))
+        } else {
+            setGroupByProject(null);
+        }        
     }, [employeesData])
     return (
-        <div>
-            <h3>Data Grouped By Project</h3>
-            <NestedDataTable data={groupByProject} parentLabel="Project ID:" />
-        </div>
+        <>
+            {groupByProject && (
+                <div className="container column">
+                    <h3>Data Grouped By Project</h3>
+                    <NestedDataTable data={groupByProject} parentLabel="Project ID:" />
+                </div>
+            )}
+            {!employeesData && <FileBrowser />}
+        </>
+
     )
 }
 

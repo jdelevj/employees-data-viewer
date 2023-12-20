@@ -38,16 +38,16 @@ export function DataTable ({data}){
         <table>
             <thead>
                 <tr>
-                    <th><input type="number" onChange={e => handleFilterChange(e, "employeeId")} /></th>
-                    <th><input type="number" onChange={e => handleFilterChange(e, "projectId")}/></th>
+                    <th><input type="number" placeholder="Enter employee ID" onChange={e => handleFilterChange(e, "employeeId")} /></th>
+                    <th><input type="number" placeholder="Enter project ID" onChange={e => handleFilterChange(e, "projectId")}/></th>
                     <th><input type="date" lang="bg-BG" onChange={e => handleFilterChange(e, "dateFrom")}/></th>
                     <th><input type="date" lang="bg-BG" onChange={e => handleFilterChange(e, "dateTo")}/></th>
                 </tr>
                 <tr>
-                    <th>Employee ID:</th>
-                    <th>Project ID:</th>
-                    <th>Date From:</th>
-                    <th>Date To:</th>
+                    <th>Employee ID</th>
+                    <th>Project ID</th>
+                    <th>Date From</th>
+                    <th>Date To</th>
                 </tr>
             </thead>
             <tbody>

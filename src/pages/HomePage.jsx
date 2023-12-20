@@ -3,6 +3,7 @@ import { DataTable } from "../components/DataTable";
 import { FileBrowser } from "../components/FileBrowser";
 import { useEmployees } from "../hooks/useEmployees";
 import { pairEmployees } from "../utils/dataValidations";
+import { TopPair } from "../components/TopPair";
 
 function HomePage() {
     const {employeesData} = useEmployees();
@@ -10,72 +11,53 @@ function HomePage() {
     const [topPairsOverall, setTopPairsOverall] = useState();
 
     useEffect(() => {
-        const pairs = pairEmployees(employeesData);
-        console.log(pairs);
-        const topPairs = pairs.reduce((acc, pair) => {
+        if (employeesData) {
+            const pairs = pairEmployees(employeesData);
+
+            setTopPairsTogether(getTopPairs(pairs, "workedTogether"));
+            setTopPairsOverall(getTopPairs(pairs, "workedOverall"));
+        }
+    }, [employeesData]);
+
+    function getTopPairs(pairs, fieldToCompare) {
+        return pairs.reduce((acc, pair) => {
             if (acc.length === 0 ) {
                 acc.push(pair);
             } else {
                 const topPair = acc[0];
-                if(topPair.workedTogether === pair.workedTogether) {
+                if (topPair[fieldToCompare] === pair[fieldToCompare]) {
                     acc.push(pair);
-                } else if (pair.workedTogether > topPair.workedTogether) {
+                } else if (pair[fieldToCompare] > topPair[fieldToCompare]) {
                     acc = [pair];
                 }
             }
             return acc;
         }, []);
-        setTopPairsTogether(topPairs);
-    }, [employeesData])
+    }
 
     return (
         <div>
-            <h3>I am Home Page</h3>
-            <FileBrowser />
-            {topPairsTogether && topPairsTogether.map(pair => <TopPair pair={pair}/>)}
-            <DataTable data={employeesData}/>
+            <div className="mb-32">
+                <FileBrowser />
+            </div>            
+            {employeesData && (
+                <div className="container column mb-32">
+                    <div className="title">Employees worked together the most at the same time</div>
+                    {topPairsTogether && topPairsTogether.map(pair => <TopPair className="mb-32" pair={pair} fieldName="workedTogether"/>)}
+
+                    <div className="title">Employees worked together the most overall</div>
+                    {topPairsOverall && topPairsOverall.map(pair => <TopPair className="mb-32" pair={pair} fieldName="workedOverall"/>)}
+
+                    <DataTable data={employeesData}/>
+                </div>
+            )}
         </div>
     )
 }
 
-function TopPair({pair}) {
 
-    return (
-        <div>
-            <div>
-                <div>
-                    Employees: {pair.employees.join(', ')} 
-                </div>
-                <div>
-                    Worked together: {pair.workedTogether}
-                </div>
-            </div>
-            <TopPairProjects projects={pair.projects} />
-        </div>
 
-    )
 
-}
-
-function TopPairProjects({projects}) {
-    return (
-        <table>
-            <tr>
-                <th>Project ID</th>
-                <th>Days</th>
-            </tr>
-            {projects.filter(project => project.workedTogether > 0).map(project => {
-                    return (
-                        <tr>
-                            <td>{project.projectId}</td>
-                            <td>{project.workedTogether}</td>
-                        </tr>
-                    )
-
-                })}
-        </table>
-    )
-}
 
 export default HomePage;
 

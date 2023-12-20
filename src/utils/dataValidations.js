@@ -1,3 +1,5 @@
+import { parseDate } from "./dateUtils";
+
 const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
 
 export function parseEmployeeDataString(dataString, lineNumber) {
@@ -31,8 +33,10 @@ export function parseEmployeeDataString(dataString, lineNumber) {
         parsingErrors.push(`Error at line ${lineNumber}: Wrong Date To field.`);
     }
 
-    //TODO  Validate overlapping date periods on a single employee working a project
-    //TODO  Validation dateTo must be after dateFrom
+
+    if(dateTo && dateFrom && dateTo < dateFrom) {
+        parsingErrors.push(`Error at line ${lineNumber}: Date From must be before Date To field.`);
+    }
 
     return {
         data: { employeeId, projectId, dateFrom, dateTo },
@@ -172,8 +176,7 @@ function toDate(str) {
     if (str.trim().toUpperCase() === "NULL") {
         return Date.now();
     } else {
-        // TODO: Date parsing.
-        const result = Date.parse(str.trim());
+        const result = parseDate(str.trim());
         if (!isNaN(result)) {
             return result;
         }
