@@ -1,10 +1,19 @@
+@import url('./font-awesome.css');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Rubik";
+  src: local("Rubik"),
+   url("./fonts/Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
+ }
+
 body { 
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
   background-color: #E0E1DD;
   color: #0D1B2A;
 }
@@ -41,6 +50,10 @@ button:hover {
   background-color: #415A77;
 }
 
+.mb-6 {
+  margin-bottom: 6px;
+}
+
 .mt-32 {
   margin-top: 32px;
 }
@@ -64,11 +77,12 @@ thead, .heading-row {
 }
 
 .title {
-  width: 100%;
-  border-bottom: 1px solid #1B263B;
+  width: fit-content;
+  border-bottom: 1px solid #a3a893;
   font-weight: bold;
   font-size: 18px;
   padding-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 input {

@@ -26,7 +26,6 @@ export function DataTable ({data}){
         });
 
         setFilteredEmployeeData(filteredData);
-        console.log(filter);
     }, [data, filter]);
 
     function handleFilterChange(event, fieldName) {
@@ -51,9 +50,9 @@ export function DataTable ({data}){
                 </tr>
             </thead>
             <tbody>
-                {filteredEmployeeData.map((employeeData) => {
+                {filteredEmployeeData.map((employeeData, index) => {
                     return (
-                        <tr>
+                        <tr key={index}>
                             <td>{employeeData.employeeId}</td>
                             <td>{employeeData.projectId}</td>
                             <td>{new Date(employeeData.dateFrom).toLocaleDateString("bg-BG")}</td>   
@@ -68,5 +67,5 @@ export function DataTable ({data}){
 }
 
 // TODO fix date format
-// TODO hide table head when no data  loaded
+
 //TODO Dates for filtering must be  validated 

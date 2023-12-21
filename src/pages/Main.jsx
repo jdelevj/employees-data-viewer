@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import NavMenu from "../components/NavMenu";
 import { EmployeesProvider } from "../context/EmployeesContext";
+import { Footer } from "../components/Footer";
 
 function Main() {
     return (
@@ -16,6 +17,7 @@ function Main() {
                     <NavMenu />
                 </header>
                 <Outlet />
+                <Footer />
             </div>
         </EmployeesProvider>
         

@@ -21,7 +21,7 @@ function Projects() {
         <>
             {groupByProject && (
                 <div className="container column">
-                    <h3>Data Grouped By Project</h3>
+                    <div className="title">Data Grouped By Project</div>
                     <NestedDataTable data={groupByProject} parentLabel="Project ID:" />
                 </div>
             )}

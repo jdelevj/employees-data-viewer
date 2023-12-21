@@ -159,7 +159,7 @@ function workingPeriodsOverallDays(periods) {
 function dateDiffInDays(from, to) {
     const diffTime = to - from;
 
-    return Math.ceil(diffTime / MILLISECONDS_PER_DAY);
+    return Math.ceil(diffTime / MILLISECONDS_PER_DAY) +1;
 }
 
 
@@ -182,6 +182,3 @@ function toDate(str) {
         }
     }
 }
-
-
-

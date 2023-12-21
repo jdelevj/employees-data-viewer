@@ -8,9 +8,9 @@ export function TopPairProjects({projects, fieldName}) {
                 </tr>
             </thead>
             <tbody>
-                {projects.filter(project => project[fieldName] > 0).map(project => {
+                {projects.filter(project => project[fieldName] > 0).map((project, index) => {
                     return (
-                        <tr>
+                        <tr key={index}>
                             <td>{project.projectId}</td>
                             <td>{project[fieldName]}</td>
                         </tr>

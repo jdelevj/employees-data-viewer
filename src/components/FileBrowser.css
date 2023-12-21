@@ -31,4 +31,7 @@
 .file-browser .errors {
     display: flex;
     flex-direction: column;
+    color: red;
+    list-style-type: none;
+    margin-top: 6px;
 }

@@ -22,7 +22,7 @@ function Employees() {
         <>
             {groupByEmployee && (
                 <div className="container column">
-                    <h3>Data Grouped By Employee</h3>
+                    <div className="title">Data Grouped By Employee</div>
                     <NestedDataTable data={groupByEmployee} parentLabel="Employee ID:" />
                 </div>
             )}

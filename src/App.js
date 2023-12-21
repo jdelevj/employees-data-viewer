@@ -5,6 +5,7 @@ import Employees from './pages/Employees';
 import HomePage from './pages/HomePage';
 import Main from './pages/Main';
 import Projects from './pages/Projects'
+import { NotFound } from './components/NotFound';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />}>
+            <Route path='*' element={<NotFound />}/>
             <Route path="" element={<HomePage />} />
             <Route path="/employees" element={<Employees />} />
             <Route path="/projects" element={<Projects />} />
@@ -23,7 +25,3 @@ function App() {
 }
 
 export default App;
-
-
-
-

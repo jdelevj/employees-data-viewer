@@ -95,9 +95,9 @@ export function FileBrowser() {
                 <button className="button-main" onClick={() => fileInputRef.current.click()}>Browse</button>
                 <input className="file-input" type="file" onChange={handleFileBrowse} ref={fileInputRef}/>
             </div>
-            <div className="errors">
-                {errors.map((error, index) => <div key={index}>{error}</div>)}
-            </div>
+            <ul className="errors">
+                {errors.map((error, index) => <li key={index}>{error}</li>)}
+            </ul>
         </div>
     )
 }
