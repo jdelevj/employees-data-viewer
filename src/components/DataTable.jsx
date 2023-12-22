@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { formatDate } from "../utils/dateUtils";
 
 export function DataTable ({data}){
     const [filter, setFilter] = useState({});
     const [filteredEmployeeData, setFilteredEmployeeData] = useState([]);
     useEffect(() => {
-        const dateFrom = filter.dateFrom ? Date.parse(filter.dateFrom) : null;
-        const dateTo = filter.dateTo ? Date.parse(filter.dateTo) : null;
+        const filterDate = filter.date ? Date.parse(filter.date) : null;
         const filteredData = data.filter((value) => {
             if(filter.employeeId && !value.employeeId.toString().includes(filter.employeeId)) {
                 return false;
@@ -15,13 +15,10 @@ export function DataTable ({data}){
                 return false;
             }
 
-            if(dateFrom && (dateFrom < value.dateFrom || dateFrom > value.dateTo)) {
+            if(filterDate && (filterDate < value.dateFrom || filterDate > value.dateTo)) {
                 return false;
             }
 
-            if(dateTo && (dateTo < value.dateFrom || dateTo > value.dateTo)) {
-                return false;
-            }
             return true;
         });
 
@@ -39,8 +36,7 @@ export function DataTable ({data}){
                 <tr>
                     <th><input type="number" placeholder="Enter employee ID" onChange={e => handleFilterChange(e, "employeeId")} /></th>
                     <th><input type="number" placeholder="Enter project ID" onChange={e => handleFilterChange(e, "projectId")}/></th>
-                    <th><input type="date" lang="bg-BG" onChange={e => handleFilterChange(e, "dateFrom")}/></th>
-                    <th><input type="date" lang="bg-BG" onChange={e => handleFilterChange(e, "dateTo")}/></th>
+                    <th colSpan={2}><input type="date" lang="bg-BG" onChange={e => handleFilterChange(e, "date")}/></th>
                 </tr>
                 <tr>
                     <th>Employee ID</th>
@@ -55,17 +51,17 @@ export function DataTable ({data}){
                         <tr key={index}>
                             <td>{employeeData.employeeId}</td>
                             <td>{employeeData.projectId}</td>
-                            <td>{new Date(employeeData.dateFrom).toLocaleDateString("bg-BG")}</td>   
-                            <td>{new Date(employeeData.dateTo).toLocaleDateString("bg-BG")}</td>
+                            <td>{formatDate(employeeData.dateFrom)}</td>   
+                            <td>{formatDate(employeeData.dateTo)}</td>
                         </tr>
                     )
 
                 })}
+                {filteredEmployeeData.length === 0 && (<tr><td colSpan={4}>No records found</td></tr>)}
             </tbody>
         </table>
     );
 }
 
-// TODO fix date format
 
-//TODO Dates for filtering must be  validated 
+

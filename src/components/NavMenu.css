@@ -9,12 +9,13 @@
 .nav-menu a {
     margin: 0 16px;
     color: #415A77;
+    border-bottom: 2px solid transparent;
 }
 
 .nav-menu a:hover {
     color: #0D1B2A;
+    border-bottom: 2px solid #415A77;
+    transition: 0.3s;
+
 }
 
-.nav-menu a.active {
-    border-bottom: 2px solid #415A77;
-}

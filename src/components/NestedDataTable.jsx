@@ -1,3 +1,4 @@
+import React from "react"
 import { formatDate } from "../utils/dateUtils"
 
 export function NestedDataTable({data, parentLabel}) {
@@ -10,11 +11,11 @@ export function NestedDataTable({data, parentLabel}) {
     function parentRow(rowData, i) {
 
         return (
-            <>
-                <tr className="heading-row" key={i}><td colSpan={2}>{parentLabel} {rowData.id}</td></tr>
+            <React.Fragment key={i}>
+                <tr className="heading-row"><td colSpan={2}>{parentLabel} {rowData.id}</td></tr>
                 {Object.keys(rowData.children).map((childId, index) => childRow(rowData.children[childId], `${i}_${index}`))}
                 
-            </>
+            </React.Fragment>
         )
     }
 

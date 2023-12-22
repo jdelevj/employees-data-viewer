@@ -43,10 +43,16 @@ function HomePage() {
             {employeesData && (
                 <div className="container column mb-32">
                     <div className="title">Employees that worked together the most on the same projects at the same time</div>
-                    {topPairsTogether && topPairsTogether.map((pair, index) => <TopPair className="mb-32" pair={pair} key={index} fieldName="workedTogether"/>)}
+                    {topPairsTogether && (
+                        (topPairsTogether.length === 0 || topPairsTogether[0].workedTogether === 0) ? (<div className="mb-32">No employees match the criteria</div>) : 
+                        (topPairsTogether.map((pair, index) => <TopPair className="mb-32" pair={pair} key={index} fieldName="workedTogether"/>)))}
 
                     <div className="title">Employees that worked together the most on the same projects</div>
-                    {topPairsOverall && topPairsOverall.map((pair,index) => <TopPair className="mb-32" pair={pair} key={index} fieldName="workedOverall"/>)}
+                    {topPairsOverall && (
+                        (topPairsOverall.length === 0 || topPairsOverall[0].workedOverall === 0) ? (<div className="mb-32">No employees match the criteria</div>) : 
+                        (topPairsOverall.map((pair,index) => <TopPair className="mb-32" pair={pair} key={index} fieldName="workedOverall"/>)))}
+                    
+                    
 
                     <DataTable data={employeesData}/>
                 </div>

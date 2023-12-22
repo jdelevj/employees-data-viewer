@@ -8,5 +8,3 @@ export function EmployeesProvider({children}) {
         <EmployeesContext.Provider value={{employeesData, setEmployeesData}}>{children}</EmployeesContext.Provider>
     )
 }
-
-//TODO useLoading for waiting data to load

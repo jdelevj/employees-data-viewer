@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 3px;
 }
 
 .file-browser .drop-target.highlight {

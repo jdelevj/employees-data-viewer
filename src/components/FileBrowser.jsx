@@ -37,9 +37,14 @@ export function FileBrowser() {
         e.stopPropagation();
         const files = [...e.dataTransfer.files];
     
-        // TODO: validate file extension
         if (files.length > 0) {
-            processFile(files[0]);
+            const file = files[0];
+            const fileName = file.name.toLowerCase();
+            if (fileName.endsWith(".csv") || fileName.endsWith(".txt")) {
+                processFile(file);
+            } else {
+                setErrors(["Please use only .csv or .txt files."]);
+            } 
         }
         unhighlight();
     };
@@ -93,7 +98,7 @@ export function FileBrowser() {
                     Drag and drop CSV file here or
                 </div>
                 <button className="button-main" onClick={() => fileInputRef.current.click()}>Browse</button>
-                <input className="file-input" type="file" onChange={handleFileBrowse} ref={fileInputRef}/>
+                <input className="file-input" type="file" accept=".csv, .txt" onChange={handleFileBrowse} ref={fileInputRef}/>
             </div>
             <ul className="errors">
                 {errors.map((error, index) => <li key={index}>{error}</li>)}

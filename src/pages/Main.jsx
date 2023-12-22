@@ -3,11 +3,12 @@ import { Outlet } from "react-router-dom";
 import NavMenu from "../components/NavMenu";
 import { EmployeesProvider } from "../context/EmployeesContext";
 import { Footer } from "../components/Footer";
+import "./Main.css";
 
 function Main() {
     return (
         <EmployeesProvider>
-            <div className="Main">
+            <div className="main">
                 <header className="Main-header">
                     <div className="mt-32 mb-32">
                         <div className="container justify-content-center">
@@ -16,7 +17,7 @@ function Main() {
                     </div>  
                     <NavMenu />
                 </header>
-                <Outlet />
+                <div className="mb-32 content"><Outlet /></div>
                 <Footer />
             </div>
         </EmployeesProvider>

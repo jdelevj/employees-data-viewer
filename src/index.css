@@ -64,6 +64,10 @@ button:hover {
 
 table {
   border-collapse: collapse;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+  border-radius: 3px;
+
+
 }
 
 th, td {

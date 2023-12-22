@@ -5,7 +5,7 @@ import Employees from './pages/Employees';
 import HomePage from './pages/HomePage';
 import Main from './pages/Main';
 import Projects from './pages/Projects'
-import { NotFound } from './components/NotFound';
+import { NotFound } from './pages/NotFound';
 
 function App() {
   return (
