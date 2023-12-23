@@ -12,7 +12,7 @@ function Employees() {
 
     useEffect(() => {
         if (employeesData) {
-            setGroupByEmployee(nestedGrouping(employeesData, 'employeeId', 'projectId'))
+            setGroupByEmployee(nestedGrouping(employeesData, 'employeeId', 'projectId'));
         } else {
             setGroupByEmployee(null);
         }

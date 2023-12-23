@@ -19,3 +19,6 @@
 
 }
 
+.nav-menu a.active {
+    font-weight: bold;
+}
